@@ -1,0 +1,21 @@
+<template name="success">
+    <div class="col-md-8 centrado centrado-fix">
+        <div class="success-message">
+            <div class="row">
+            <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
+        <circle cx="38" cy="38" r="36" fill="#3DC480"/>
+        <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7"/>
+    </svg>
+            </div>
+
+    <h1 class="success-message-title">Reserva Recibida</h1>
+    <div class="success-message__content">
+        <p>Señor <span id="nombrecliente"></span> su reserva ha sido confirmada con el número<br> <span id="codigoreserva"></span>.</p>
+        <p>En los próximos minutos nos pondremos en contacto con usted para indicarle cómo recoger su vehículo</p>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-success resumen-reserva">Imprimir</button>
+    </div>
+</div>
+    </div>
+</template>

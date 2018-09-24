@@ -1,0 +1,227 @@
+<template name="bonos">
+    {{#autoForm id="bonosform" schema=Schemas.BonoReserva validation="blur"}}
+        <div class="movform pag1 active">
+            <div class="col-md-6 centrado">
+                <div class="row">
+                    {{> afQuickField name="hotel" class="input-fix"}}
+                </div>
+                <div class="row">
+                    {{> afQuickField name="emailhotel" class="input-fix nocap"}}
+                </div>
+                <div class="row">
+                    {{> afQuickField name="ciudad" class="input-fix"}}
+                </div>
+
+
+            </div>
+        </div>
+        <div class="movform pag2">
+            <div class="col-md-8 centrado">
+                    <div class="row margened">
+                        <div class="col-md-12"><img src="/imgs/drivers.svg" class="icon"><h1>Información del Conductor</h1></div>
+
+                    </div>
+
+                    <div class="row margened-cat">
+                        <div class="col-md-6">
+                            {{> afQuickField name="nombre" class="input-fix"}}
+                        </div>
+                        <div class="col-md-6">
+                            {{> afQuickField name="apellidos" class="input-fix"}}
+                        </div>
+                    </div>
+                    <div class="row margened-cat">
+                        <div class="col-md-6">
+                            {{> afQuickField name="email" class="input-fix nocap"}}
+                        </div>
+                        <div class="col-md-6">
+                            {{> afQuickField name="telefono" class="input-fix"}}
+                        </div>
+                    </div>
+                    <div class="row margened">
+                        <div class="col-md-12"><img src="/imgs/cochewhite.svg" class="icon"><h1>Detalles de Coche</h1></div>
+
+                    </div>
+                    <div class="row margened-cat">
+
+                        <div class="col-xs-6">
+                            {{> afQuickField name="tipocoche" class="input-fix-select"}}
+                        </div>
+                        <div class="col-xs-6">
+                            {{> afQuickField name="tarifa" class="input-fix-select"}}
+                        </div>
+                    </div>
+                    <div class="row margened">
+                        <div class="col-md-12"><img src="/imgs/recogwhite.svg" class="icon"><h1>Recogida</h1></div>
+                    </div>
+                    <div class="row margened-cat row-margin-fixed">
+
+                        <div class="col-md-12">
+                            {{> afQuickField name="recolugar" class="input-fix"}}
+                        </div>
+                        <div class="col-sm-4" id="fecharecogida">
+                            <div class="form-group" data-required="true">
+
+                                <label class="control-label">Fecha</label>
+                            {{> afFieldInput  name="recofecha" type="date" class="hook-recogida"}}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            {{> afQuickField name="recohora" class="input-fix-select lesspadding"}}
+                        </div>
+                        <div class="col-sm-4">
+                            {{> afQuickField name="recomin" class="input-fix-select lesspadding"}}
+                        </div>
+
+                        <div class="col-md-12 checkbox">
+                            <label class="checkbox-inline check-transfer" id="check-transfer"><input type="checkbox" not-checked id="checkbox-transfer">¿Transfer?</label>
+                        </div>
+                    </div>
+
+                    <div class="row margened">
+                        <div class="col-md-12"><img src="/imgs/devolwhite.svg" class="icon"><h1>Devolución</h1></div>
+                    </div>
+                    <div class="row margened-cat row-margin-fixed">
+                        <div class="col-md-12 checkbox">
+                            <label class="checkbox-inline check-lugar" id="check-lugar"><input type="checkbox" not-checked id="checkbox-devo">Devolución en diferente lugar que recogida</label>
+                        </div>
+                        <div class="col-md-12 oculto" id="row-devo">
+                            {{> afQuickField name="devolugar" class="input-fix-fixed"}}
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" data-required="true">
+
+                                <label class="control-label">Fecha</label>
+                            {{> afFieldInput  name="devofecha" type="date" class="input-fix-date"}}
+                            <p id="error-fecha-devo">¡CUIDADO! Fecha de Devolución anterior a Fecha de Recogida</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            {{> afQuickField name="devohora" class="input-fix-select lesspadding"}}
+                        </div>
+                        <div class="col-sm-4">
+                            {{> afQuickField name="devomin" class="input-fix-select lesspadding"}}
+                        </div>
+                    </div>
+
+                    <div class="row margened">
+                        <div class="col-md-12"><img src="/imgs/tarjeta.svg" class="icon"><h1>Pago</h1></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                          {{> afQuickField name="coste" class="input-fix only-numbers"}}
+                      </div>
+                      <div class="col-md-12 checkbox">
+                          <label class="checkbox-inline check-prepago" id="check-prepago"><input type="checkbox" not-checked id="checkbox-prepago">¿Prepago?</label>
+                      </div>
+                      <div class="col-md-6 oculto" id="row-prepago">
+                          {{> afQuickField name="qtyPrepago" class="input-fix-fixed only-numbers"}}
+                      </div>
+                        <div class="col-md-12">
+<!--                            {{> afQuickField name="nombretarjeta" class="input-fix"}}-->
+<!--                            <div class="form-group" data-required="true">
+
+                                <label class="control-label">Nombre</label>
+                                <input type="text" name="nombretarjeta" class="input-fix form-control" id="LpfhsxanbN8CJzkJL" required="" data-schema-key="nombretarjeta" value={{nombrecompleto}}>
+                                <span class="help-block"></span>
+                          </div>-->
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-xs-6">
+                            {{> afQuickField name="tipotarjeta" class="input-fix-select"}}
+                        </div>
+
+                    </div>
+
+                    <div class="row margened-cat">
+                        <div class="col-md-8">
+                           {{> afQuickField name="numero" class="input-fix form-control"}}
+                        </div>
+                        <div class="col-md-4">
+                            {{> afQuickField name="cvv" class="input-fix form-control"}}
+                        </div>
+                        <div class="col-xs-4">
+                            {{> afQuickField name="mescaducidad" class="input-fix-select"}}
+                        </div>
+                        <div class="col-xs-4">
+                            {{> afQuickField name="yearcaducidad" class="input-fix-select"}}
+                        </div>
+                    </div>
+                    <div class="row margened">
+                        <div class="col-md-12"><img src="/imgs/notas.svg" class="icon"><h1>Notas</h1>
+                        </div>
+                            {{> afQuickField name='notas' class="input-fix-fixed" rows=4}}
+                    </div>
+                </div>
+        </div>
+    <div class="movform pag3">
+        <div class="col-md-8 centrado">
+            <div class="row">
+                    <div id="ticket">
+                        <img src="imgs/sabadell.svg" width="200px">
+                        <h2>Carflet Rent a Car</h2>
+                        <p>MADRID</p>
+                        <p>COMERCIO: 336003231    TPV: 99941541901</p>
+                        <H3>************{{getCard}}</H3>
+                        <p>TECLEO</p>
+                        <p class="vta">VENTA</p>
+                        <div class="col-xs-6">
+                            <p>Aut: 193940</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p>Op: 098462</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p>FECHA: {{formatDate}}</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <P>HORA: {{formatHour}}</P>
+                        </div>
+                        <h4>{{getCoste}} €</h4>
+                        <h5>FIRMA CLIENTE</h5>
+                        <div class="separator"></div>
+                        <canvas id="simple_sketch" width="700" height="400"></canvas>
+                        <div class="separator"></div>
+                    </div>
+
+            </div>
+            <div class="row">
+                {{> afQuickField name="agree" class="input-fix check"}}
+                <div class="arrow" id="arrow-to-check"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-button-left">
+                    <button type="button" class="btn btn-primary pdfbutton">Imprimir</button>
+                </div>
+                <div class="col-md-6 col-button">
+                    <p id="help-line-pago"></p>
+                    <p id="help-line-campos"></p>
+                    <button type="submit" class="btn btn-success sendbutton not-active">Enviar</button>
+                    <div class="arrow faded" id="arrow-to-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 centrado ref-nav">
+        <div id="formNav">
+            <ul>
+              <li class="formNavPrev">
+                <a href="#" title="Go to previous screen">
+                  <img src="imgs/back.svg" class="icon-nav"><span>Atrás</span>
+                </a>
+              </li>
+              <li class="formNavNext">
+                <a href="#" title="Go to next screen">
+                  <span>Siguiente</span><img src="imgs/forward.svg" class="icon-nav">
+                </a>
+              </li>
+            </ul>
+        </div>
+    </div>
+<!--    <div>
+            <button type="submit">Submit</button>
+    </div>-->
+    {{/autoForm}}
+</template>
